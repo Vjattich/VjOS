@@ -1,0 +1,18 @@
+---
+title: Java
+description: Installs java
+privilege: TrustedInstaller
+actions:
+  - !writeStatus: {status: 'Installing SDK Man'}
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File SDK_MAN_SCOOP.ps1'
+    weight: 120
+    
+  - !writeStatus: {status: 'Installing Java'}
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File SDK_MAN_INSTALL_JAVA.ps1'
+    weight: 120

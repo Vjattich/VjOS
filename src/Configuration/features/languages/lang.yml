@@ -1,0 +1,97 @@
+!UTask
+title: Language installation
+description: Installs the files for the languages selected in the GUI
+minVersion: 
+maxVersion: 
+status: ToDo
+actions:
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/basic_de-de.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/speech_de-de.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/tts_de-de.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/ocr_de-de.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/hw_de-de.cab
+  standardError: 
+  standardOutput: 
+- !powershell
+  command: $OldList = Get-WinUserLanguageList; $OldList.Add(de-DE); Set-WinUserLanguageList -LanguageList $OldList -Force
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/basic_en-us.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/speech_en-us.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/tts_en-us.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/ocr_en-us.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/hw_en-us.cab
+  standardError: 
+  standardOutput: 
+- !powershell
+  command: $OldList = Get-WinUserLanguageList; $OldList.Add(en-US); Set-WinUserLanguageList -LanguageList $OldList -Force
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/basic_es-es.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/speech_es-es.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/tts_es-es.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/ocr_es-es.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/hw_es-es.cab
+  standardError: 
+  standardOutput: 
+- !powershell
+  command: $OldList = Get-WinUserLanguageList; $OldList.Add(es-ES); Set-WinUserLanguageList -LanguageList $OldList -Force
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/basic_fi-fi.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/speech_fi-fi.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/tts_fi-fi.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/ocr_fi-fi.cab
+  standardError: 
+  standardOutput: 
+- !cmd
+  command: Dism /online /Add-Package /PackagePath:%temp%/AME/Languages/hw_fi-fi.cab
+  standardError: 
+  standardOutput: 
+- !powershell
+  command: $OldList = Get-WinUserLanguageList; $OldList.Add(fi-FI); Set-WinUserLanguageList -LanguageList $OldList -Force
+priority: 1
+features: []

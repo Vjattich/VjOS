@@ -1,0 +1,34 @@
+title: Configuration
+privilege: TrustedInstaller
+actions:
+  - !writeStatus: {status: 'Configuring permissions'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'ConsentPromptBehaviorAdmin', type: REG_DWORD, data: '5'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'ConsentPromptBehaviorUser', type: REG_DWORD, data: '3'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableInstallerDetection', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableLUA', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'EnableVirtualization', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'PromptOnSecureDesktop', type: REG_DWORD, data: '1'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'ValidateAdminCodeSignatures', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System', value: 'FilterAdministratorToken', type: REG_DWORD, data: '0'}
+
+  - !run:
+    exeDir: true
+    exe: "ADMIN.bat"
+    weight: 10
+
+  - !writeStatus: {status: 'Implementing SFC mitigation'}
+  - !run:
+    exeDir: true
+    exe: "SFCDEPLOY.bat"
+    weight: 5
+
+  - !writeStatus: {status: 'Configuring start menu'}
+  - !run:
+    exeDir: true
+    exe: "STARTMENU.bat"
+    weight: 15
+
+  - !writeStatus: {status: 'Modifying login screen'}
+  - !run:
+    exeDir: true
+    exe: "LOGIN.bat"
