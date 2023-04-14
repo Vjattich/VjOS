@@ -17,12 +17,12 @@ actions:
     args: 'install -y --allow-empty-checksums stevedore'
     weight: 30
 
-  - !writeStatus: { status: 'Installing Telegram' }
-  - !run:
-    path: '%ProgramData%\chocolatey\bin'
-    exe: 'choco.exe'
-    args: 'install -y --allow-empty-checksums telegram.install'
-    weight: 30
+#  - !writeStatus: { status: 'Installing Telegram' }
+#  - !run:
+#    path: '%ProgramData%\chocolatey\bin'
+#    exe: 'choco.exe'
+#    args: 'install -y --allow-empty-checksums telegram.install'
+#    weight: 30
 
   - !writeStatus: { status: 'Installing Autohotkey' }
   - !run:
