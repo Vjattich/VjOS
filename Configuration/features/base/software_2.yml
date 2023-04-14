@@ -1,0 +1,60 @@
+---
+title: Software
+description: Installs software
+privilege: TrustedInstaller
+actions:
+  - !writeStatus: { status: 'Installing Git' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --allow-empty-checksums git'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Win Docker' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --allow-empty-checksums stevedore'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Telegram' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --allow-empty-checksums telegram'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Idea' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --force --allow-empty-checksums intellijidea-ultimate'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Discord' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --force --allow-empty-checksums Discord'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Steam' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --force --allow-empty-checksums steam'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Sublime Text' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --force --allow-empty-checksums sublimetext4 --version=4.0.0.410700'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing PowerToys' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --force --allow-empty-checksums powertoys'
+    weight: 30
