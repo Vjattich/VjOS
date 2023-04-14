@@ -261,12 +261,12 @@ actions:
     args: 'install -y --allow-empty-checksums telegram'
     weight: 30
 
-  - !writeStatus: {status: 'Installing Idea'}
-  - !run:
-    path: '%ProgramData%\chocolatey\bin'
-    exe: 'choco.exe'
-    args: 'install -y --force --allow-empty-checksums intellijidea-ultimate'
-    weight: 30
+#  - !writeStatus: {status: 'Installing Idea'}
+#  - !run:
+#    path: '%ProgramData%\chocolatey\bin'
+#    exe: 'choco.exe'
+#    args: 'install -y --force --allow-empty-checksums intellijidea-ultimate'
+#    weight: 30
 
   - !writeStatus: {status: 'Installing Discord'}
   - !run:
