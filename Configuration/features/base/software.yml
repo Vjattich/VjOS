@@ -282,11 +282,18 @@ actions:
     args: 'install -y --allow-empty-checksums steam'
     weight: 30 
 
-  - !writeStatus: {status: 'Installing Steam'}
+  - !writeStatus: {status: 'Installing Sublime Text'}
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
     args: 'install -y --allow-empty-checksums sublimetext4 --version=4.0.0.410700'
+    weight: 30
+
+  - !writeStatus: {status: 'Installing PowerToys'}
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install  -y --allow-empty-checksums powertoys'
     weight: 30
 
   - !run:
