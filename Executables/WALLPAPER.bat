@@ -4,9 +4,9 @@ PowerShell -NoP -C "$Content = (Get-Content '%WINDIR%\Resources\Themes\aero.them
 
 @echo OFF
 
-if exist "pics/clouds.bmp" (
-	echo move /y "pics/clouds.bmp" "%WINDIR%\Web\Wallpaper\Windows"
-	move /y "pics/clouds.bmp" "%WINDIR%\Web\Wallpaper\Windows"
+if exist "pics\clouds.bmp" (
+	echo move /y "pics\clouds.bmp" "%WINDIR%\Web\Wallpaper\Windows"
+	move /y "pics\clouds.bmp" "%WINDIR%\Web\Wallpaper\Windows"
 	echo icacls "%WINDIR%\Web\Wallpaper\Windows\clouds.bmp" /reset
 	icacls "%WINDIR%\Web\Wallpaper\Windows\clouds.bmp" /reset
 )
