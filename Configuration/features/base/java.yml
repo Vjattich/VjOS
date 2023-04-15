@@ -3,12 +3,6 @@ title: Java
 description: Installs java
 privilege: TrustedInstaller
 actions:
-  - !writeStatus: { status: 'Installing SDK Man' }
-  - !run:
-    exeDir: true
-    exe: "SDK_MAN_SCOOP.bat"
-    weight: 120
-
   - !writeStatus: { status: 'Installing Java' }
   - !run:
     exeDir: true

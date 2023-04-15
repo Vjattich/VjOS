@@ -54,12 +54,12 @@ actions:
     args: 'install -y --force --allow-empty-checksums 7zip'
     weight: 50
 
-  - !writeStatus: { status: 'Installing Git' }
-  - !run:
-    path: '%ProgramData%\chocolatey\bin'
-    exe: 'choco.exe'
-    args: 'install -y --allow-empty-checksums git'
-    weight: 30
+#  - !writeStatus: { status: 'Installing Git' }
+#  - !run:
+#    path: '%ProgramData%\chocolatey\bin'
+#    exe: 'choco.exe'
+#    args: 'install -y --allow-empty-checksums git'
+#    weight: 30
 
   - !writeStatus: { status: 'Installing Win Docker' }
   - !run:
