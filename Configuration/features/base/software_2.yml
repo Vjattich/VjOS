@@ -63,8 +63,6 @@ actions:
     args: 'install -y --force --allow-empty-checksums steam'
     weight: 30
 
-
-
   - !writeStatus: { status: 'Installing PowerToys' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
