@@ -293,13 +293,6 @@ actions:
     args: '-NoP -ExecutionPolicy Bypass -File scoop.ps1'
     weight: 120
 
-  - !writeStatus: { status: 'Installing Java' }
-  - !run:
-    exeDir: true
-    exe: "PowerShell"
-    args: '-NoP -ExecutionPolicy Bypass -File SDK_MAN_INSTALL_JAVA.ps1'
-    weight: 120
-
   - !writeStatus: { status: 'Setting wallpapers' }
   - !run:
     exeDir: true
