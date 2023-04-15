@@ -3,13 +3,13 @@ title: Software
 description: Installs software
 privilege: TrustedInstaller
 actions:
-  - !writeStatus: {status: 'Installing Open-Shell'}
+  - !writeStatus: { status: 'Installing Open-Shell' }
   - !run:
     exeDir: true
     exe: "SLNT.bat"
     weight: 50
 
-  - !writeStatus: {status: 'Configuring user interface'}
+  - !writeStatus: { status: 'Configuring user interface' }
   - !run:
     exeDir: true
     exe: "UI.bat"
@@ -23,13 +23,12 @@ actions:
     exe: "CHANGE_PROFILE_PICTURE.cmd"
     weight: 70
 
-  - !writeStatus: {status: 'Installing Chocolatey'}
-    # Install Chocolatey
+  - !writeStatus: { status: 'Installing Chocolatey' }
   - !powerShell:
     command: 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(''https://community.chocolatey.org/install.ps1''))'
     weight: 30
 
-  - !writeStatus: {status: 'Installing Vivaldi'}
+  - !writeStatus: { status: 'Installing Vivaldi' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
@@ -41,14 +40,14 @@ actions:
     args: 'upgrade -y --allow-empty-checksums vivaldi.install'
     weight: 150
 
-  - !writeStatus: {status: 'Installing VLC'}
+  - !writeStatus: { status: 'Installing VLC' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
     args: 'install -y --force --allow-empty-checksums vlc'
     weight: 70
 
-  - !writeStatus: {status: 'Installing 7zip'}
+  - !writeStatus: { status: 'Installing 7zip' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
@@ -94,189 +93,189 @@ actions:
     args: 'install -y --force --allow-empty-checksums steam'
     weight: 30
 
-  - !writeStatus: {status: 'Installing nomacs'}
+  - !writeStatus: { status: 'Installing nomacs' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
     args: 'install -y --force --allow-empty-checksums nomacs'
     weight: 50
 
-  - !writeStatus: {status: 'Configuring nomacs'}
+  - !writeStatus: { status: 'Configuring nomacs' }
 
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.3fr.3', value: '', type: 'REG_SZ', data: 'Hasselblad Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.3fr.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.3fr.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.arw.3', value: '', type: 'REG_SZ', data: 'Sony Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.arw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.arw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.avif.3', value: '', type: 'REG_SZ', data: 'AV1 Image File Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.avif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.avif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.avifs.3', value: '', type: 'REG_SZ', data: 'AVIF image sequence Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.avifs.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.avifs.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.bmp.3', value: '', type: 'REG_SZ', data: 'Windows Bitmap Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.bmp.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.bmp.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.crw.3', value: '', type: 'REG_SZ', data: 'Canon Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.crw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.crw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.cur.3', value: '', type: 'REG_SZ', data: 'Windows Cursor Files Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.cur.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.cur.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.dcx.3', value: '', type: 'REG_SZ', data: 'Image Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.dcx.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.dcx.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.dng.3', value: '', type: 'REG_SZ', data: 'Digital Negativ Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.dng.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.dng.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.drif.3', value: '', type: 'REG_SZ', data: 'Developers Raw Image Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.drif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.drif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.exif.3', value: '', type: 'REG_SZ', data: 'EXIF Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.exif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.exif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.gif.3', value: '', type: 'REG_SZ', data: 'Graphic Interchange Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.gif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,2'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.gif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heic.3', value: '', type: 'REG_SZ', data: 'Image Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heic.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heic.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heics.3', value: '', type: 'REG_SZ', data: 'Image Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heics.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heics.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heif.3', value: '', type: 'REG_SZ', data: 'Image Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heifs.3', value: '', type: 'REG_SZ', data: 'Image Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heifs.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.heifs.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.icns.3', value: '', type: 'REG_SZ', data: 'Apple Icon Image Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.icns.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.icns.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.iiq.3', value: '', type: 'REG_SZ', data: 'Phase One Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.iiq.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.iiq.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jp2.3', value: '', type: 'REG_SZ', data: 'JPEG 2000 Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jp2.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jp2.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jpg.3', value: '', type: 'REG_SZ', data: 'JPEG Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jpg.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,1'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jpg.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jps.3', value: '', type: 'REG_SZ', data: 'JPEG Stereo Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jps.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.jps.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mng.3', value: '', type: 'REG_SZ', data: 'Multi-Image Network Graphics Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mng.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,2'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mng.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mos.3', value: '', type: 'REG_SZ', data: 'Leaf Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mos.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mos.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mpo.3', value: '', type: 'REG_SZ', data: 'Multi Picture Object Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mpo.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mpo.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mrw.3', value: '', type: 'REG_SZ', data: 'Minolta Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mrw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.mrw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.nef.3', value: '', type: 'REG_SZ', data: 'Nikon Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.nef.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.nef.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.orf.3', value: '', type: 'REG_SZ', data: 'Olympus Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.orf.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.orf.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pbm.3', value: '', type: 'REG_SZ', data: 'Portable Bitmap Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pbm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pbm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pcx.3', value: '', type: 'REG_SZ', data: 'Image Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pcx.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pcx.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pef.3', value: '', type: 'REG_SZ', data: 'Pentax Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pef.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pef.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pgm.3', value: '', type: 'REG_SZ', data: 'Portable Graymap Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pgm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pgm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.png.3', value: '', type: 'REG_SZ', data: 'PNG Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.png.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,3'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.png.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pns.3', value: '', type: 'REG_SZ', data: 'PNG Stereo Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pns.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.pns.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.ppm.3', value: '', type: 'REG_SZ', data: 'Portable Pixmap Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.ppm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.ppm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.psb.3', value: '', type: 'REG_SZ', data: 'Large Document Format Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.psb.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.psb.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.psd.3', value: '', type: 'REG_SZ', data: 'Adobe Photoshop Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.psd.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.psd.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.raf.3', value: '', type: 'REG_SZ', data: 'Fujifilm Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.raf.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.raf.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.raw.3', value: '', type: 'REG_SZ', data: 'Panasonic Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.raw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.raw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.roh.3', value: '', type: 'REG_SZ', data: 'Rohkost Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.roh.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.roh.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.srw.3', value: '', type: 'REG_SZ', data: 'Samsung Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.srw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.srw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.svg.3', value: '', type: 'REG_SZ', data: 'Scalable Vector Graphics Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.svg.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.svg.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.tga.3', value: '', type: 'REG_SZ', data: 'Truvision Graphics Adapter Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.tga.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.tga.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.tif.3', value: '', type: 'REG_SZ', data: 'TIFF Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.tif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.tif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.vec.3', value: '', type: 'REG_SZ', data: 'OpenCV Haar Training Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.vec.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.vec.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.wbmp.3', value: '', type: 'REG_SZ', data: 'Wireless Bitmap Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.wbmp.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.wbmp.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.webp.3', value: '', type: 'REG_SZ', data: 'WebP Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.webp.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.webp.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.x3f.3', value: '', type: 'REG_SZ', data: 'Sigma Raw Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.x3f.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.x3f.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.xbm.3', value: '', type: 'REG_SZ', data: 'X11 Bitmap Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.xbm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.xbm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.xpm.3', value: '', type: 'REG_SZ', data: 'X11 Pixmap Image'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.xpm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0'}
-  - !registryValue: {path: 'HKLM\SOFTWARE\classes\nomacs.xpm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"'}
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.3fr.3', value: '', type: 'REG_SZ', data: 'Hasselblad Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.3fr.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.3fr.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.arw.3', value: '', type: 'REG_SZ', data: 'Sony Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.arw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.arw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.avif.3', value: '', type: 'REG_SZ', data: 'AV1 Image File Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.avif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.avif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.avifs.3', value: '', type: 'REG_SZ', data: 'AVIF image sequence Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.avifs.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.avifs.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.bmp.3', value: '', type: 'REG_SZ', data: 'Windows Bitmap Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.bmp.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.bmp.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.crw.3', value: '', type: 'REG_SZ', data: 'Canon Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.crw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.crw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.cur.3', value: '', type: 'REG_SZ', data: 'Windows Cursor Files Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.cur.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.cur.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.dcx.3', value: '', type: 'REG_SZ', data: 'Image Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.dcx.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.dcx.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.dng.3', value: '', type: 'REG_SZ', data: 'Digital Negativ Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.dng.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.dng.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.drif.3', value: '', type: 'REG_SZ', data: 'Developers Raw Image Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.drif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.drif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.exif.3', value: '', type: 'REG_SZ', data: 'EXIF Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.exif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.exif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.gif.3', value: '', type: 'REG_SZ', data: 'Graphic Interchange Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.gif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,2' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.gif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heic.3', value: '', type: 'REG_SZ', data: 'Image Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heic.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heic.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heics.3', value: '', type: 'REG_SZ', data: 'Image Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heics.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heics.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heif.3', value: '', type: 'REG_SZ', data: 'Image Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heifs.3', value: '', type: 'REG_SZ', data: 'Image Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heifs.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.heifs.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.icns.3', value: '', type: 'REG_SZ', data: 'Apple Icon Image Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.icns.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.icns.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.iiq.3', value: '', type: 'REG_SZ', data: 'Phase One Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.iiq.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.iiq.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jp2.3', value: '', type: 'REG_SZ', data: 'JPEG 2000 Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jp2.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jp2.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jpg.3', value: '', type: 'REG_SZ', data: 'JPEG Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jpg.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,1' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jpg.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jps.3', value: '', type: 'REG_SZ', data: 'JPEG Stereo Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jps.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.jps.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mng.3', value: '', type: 'REG_SZ', data: 'Multi-Image Network Graphics Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mng.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,2' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mng.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mos.3', value: '', type: 'REG_SZ', data: 'Leaf Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mos.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mos.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mpo.3', value: '', type: 'REG_SZ', data: 'Multi Picture Object Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mpo.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mpo.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mrw.3', value: '', type: 'REG_SZ', data: 'Minolta Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mrw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.mrw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.nef.3', value: '', type: 'REG_SZ', data: 'Nikon Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.nef.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.nef.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.orf.3', value: '', type: 'REG_SZ', data: 'Olympus Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.orf.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.orf.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pbm.3', value: '', type: 'REG_SZ', data: 'Portable Bitmap Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pbm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pbm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pcx.3', value: '', type: 'REG_SZ', data: 'Image Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pcx.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pcx.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pef.3', value: '', type: 'REG_SZ', data: 'Pentax Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pef.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pef.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pgm.3', value: '', type: 'REG_SZ', data: 'Portable Graymap Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pgm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pgm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.png.3', value: '', type: 'REG_SZ', data: 'PNG Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.png.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,3' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.png.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pns.3', value: '', type: 'REG_SZ', data: 'PNG Stereo Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pns.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.pns.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.ppm.3', value: '', type: 'REG_SZ', data: 'Portable Pixmap Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.ppm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.ppm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.psb.3', value: '', type: 'REG_SZ', data: 'Large Document Format Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.psb.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.psb.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.psd.3', value: '', type: 'REG_SZ', data: 'Adobe Photoshop Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.psd.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.psd.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.raf.3', value: '', type: 'REG_SZ', data: 'Fujifilm Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.raf.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.raf.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.raw.3', value: '', type: 'REG_SZ', data: 'Panasonic Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.raw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.raw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.roh.3', value: '', type: 'REG_SZ', data: 'Rohkost Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.roh.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.roh.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.srw.3', value: '', type: 'REG_SZ', data: 'Samsung Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.srw.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.srw.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.svg.3', value: '', type: 'REG_SZ', data: 'Scalable Vector Graphics Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.svg.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.svg.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.tga.3', value: '', type: 'REG_SZ', data: 'Truvision Graphics Adapter Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.tga.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.tga.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.tif.3', value: '', type: 'REG_SZ', data: 'TIFF Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.tif.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.tif.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.vec.3', value: '', type: 'REG_SZ', data: 'OpenCV Haar Training Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.vec.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.vec.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.wbmp.3', value: '', type: 'REG_SZ', data: 'Wireless Bitmap Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.wbmp.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.wbmp.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.webp.3', value: '', type: 'REG_SZ', data: 'WebP Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.webp.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,4' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.webp.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.x3f.3', value: '', type: 'REG_SZ', data: 'Sigma Raw Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.x3f.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,5' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.x3f.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.xbm.3', value: '', type: 'REG_SZ', data: 'X11 Bitmap Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.xbm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.xbm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.xpm.3', value: '', type: 'REG_SZ', data: 'X11 Pixmap Image' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.xpm.3\DefaultIcon', value: '', type: 'REG_SZ', data: 'C:\Program Files\nomacs\bin\nomacs.exe,0' }
+  - !registryValue: { path: 'HKLM\SOFTWARE\classes\nomacs.xpm.3\shell\open\command', value: '', type: 'REG_SZ', data: '"C:\Program Files\nomacs\bin\nomacs.exe" "%1"' }
   - !run:
     exeDir: true
     exe: "NOMACSCONF.bat"
     weight: 20
-    
-  - !writeStatus: {status: 'Installing vcredist'}
+
+  - !writeStatus: { status: 'Installing vcredist' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
     args: 'install -y --force --allow-empty-checksums vcredist-all'
     weight: 200
 
-  - !writeStatus: {status: 'Installing DirectX 9'}
+  - !writeStatus: { status: 'Installing DirectX 9' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
     args: 'install -y --allow-empty-checksums directx'
     weight: 150
 
-  - !writeStatus: {status: 'Installing OnlyOffice'}
+  - !writeStatus: { status: 'Installing OnlyOffice' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
     args: 'install -y --force --allow-empty-checksums onlyoffice'
     weight: 150
 
-  - !writeStatus: {status: 'Installing Cascadia Mono font'}
+  - !writeStatus: { status: 'Installing Cascadia Mono font' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
@@ -288,20 +287,20 @@ actions:
     exe: "SHRT.bat"
     weight: 70
 
-  - !writeStatus: {status: 'Setting file associations'}
+  - !writeStatus: { status: 'Setting file associations' }
   - !run:
     exeDir: true
     exe: "FILEASSOC.bat"
     weight: 50
 
-  - !writeStatus: {status: 'Installing Scoop apps'}
+  - !writeStatus: { status: 'Installing Scoop apps' }
   - !run:
     exeDir: true
     exe: "PowerShell"
     args: '-NoP -ExecutionPolicy Bypass -File scoop.ps1'
     weight: 120
 
-  - !writeStatus: {status: 'Setting wallpapers'}
+  - !writeStatus: { status: 'Setting wallpapers' }
   - !run:
     exeDir: true
     exe: "WALLPAPER.bat"

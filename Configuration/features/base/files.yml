@@ -2,7 +2,7 @@ title: Files
 description: Deletes files
 privilege: TrustedInstaller
 actions:
-  - !writeStatus: {status: 'Removing files'}
+  - !writeStatus: { status: 'Removing files' }
   - !taskKill:
     name: "explorer"
   - !taskKill:
@@ -130,14 +130,14 @@ actions:
     path: "%windir%\\SoftwareDistribution"
   - !file:
     path: "%windir%\\System32\\OOBE"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmBroker.exe"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmEnclave.dll"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmEnclave_secure.dll"
-#  - !file:
-#    path: "%windir%\\System32\\SgrmLpac.exe"
+  #  - !file:
+  #    path: "%windir%\\System32\\SgrmBroker.exe"
+  #  - !file:
+  #    path: "%windir%\\System32\\SgrmEnclave.dll"
+  #  - !file:
+  #    path: "%windir%\\System32\\SgrmEnclave_secure.dll"
+  #  - !file:
+  #    path: "%windir%\\System32\\SgrmLpac.exe"
   - !file:
     path: "%ProgramW6432%\\Windows Security"
   - !file:
@@ -188,7 +188,7 @@ actions:
   - !file:
     path: "%windir%\\System32\\IESettingSync.exe"
   - !file:
-    path: "%windir%\\System32\\gamepanel.exe"    
+    path: "%windir%\\System32\\gamepanel.exe"
   #- !FileAction:
   #  path: "%windir%\\System32\\ClipSVC.dll"
   #- !FileAction:
@@ -668,4 +668,4 @@ actions:
   - !file:
     path: "%windir%\\System32\\MRT.exe"
 
-  - !run: {exe: "NSudoLC.exe", args: '-U:C explorer.exe', baseDir: true}
+  - !run: { exe: "NSudoLC.exe", args: '-U:C explorer.exe', baseDir: true }
