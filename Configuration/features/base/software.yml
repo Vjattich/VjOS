@@ -54,13 +54,6 @@ actions:
     args: 'install -y --force --allow-empty-checksums 7zip'
     weight: 50
 
-#  - !writeStatus: { status: 'Installing Git' }
-#  - !run:
-#    path: '%ProgramData%\chocolatey\bin'
-#    exe: 'choco.exe'
-#    args: 'install -y --allow-empty-checksums git'
-#    weight: 30
-
   - !writeStatus: { status: 'Installing Win Docker' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
@@ -298,6 +291,13 @@ actions:
     exeDir: true
     exe: "PowerShell"
     args: '-NoP -ExecutionPolicy Bypass -File scoop.ps1'
+    weight: 120
+
+  - !writeStatus: { status: 'Installing Java' }
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File SDK_MAN_INSTALL_JAVA.ps1'
     weight: 120
 
   - !writeStatus: { status: 'Setting wallpapers' }
