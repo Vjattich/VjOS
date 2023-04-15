@@ -29,12 +29,12 @@ actions:
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
-    args: 'install -y --allow-empty-checksums vivaldi'
+    args: 'install -y --allow-empty-checksums vivaldi.install'
     weight: 150
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
-    args: 'upgrade -y --allow-empty-checksums vivaldi'
+    args: 'upgrade -y --allow-empty-checksums vivaldi.install'
     weight: 150
 
   - !writeStatus: {status: 'Installing VLC'}
@@ -50,6 +50,45 @@ actions:
     exe: 'choco.exe'
     args: 'install -y --force --allow-empty-checksums 7zip'
     weight: 50
+
+  - !writeStatus: { status: 'Installing Git' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --allow-empty-checksums git'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Win Docker' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --allow-empty-checksums stevedore'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Autohotkey' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --allow-empty-checksums autohotkey.install'
+    weight: 30
+  - !run:
+    exeDir: true
+    exe: "MOVE_AHK_SCRIPTS_TO_STARTUP.bat"
+    weight: 70
+
+  - !writeStatus: { status: 'Installing Idea' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --force --allow-empty-checksums intellijidea-ultimate'
+    weight: 30
+
+  - !writeStatus: { status: 'Installing Steam' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install -y --force --allow-empty-checksums steam'
+    weight: 30
 
   - !writeStatus: {status: 'Installing nomacs'}
   - !run:

@@ -11,5 +11,4 @@ features:
 - features\base\files.yml
 - features\base\config.yml
 - features\base\software.yml
-- features\base\software_2.yml
 - features\base\java.yml
