@@ -4,8 +4,6 @@ cmd /c "del /q /f "%WINDIR%\HelpPane.exe""
 ame-hexer "%WINDIR%\Resources\Themes\aero\Shell\NormalColor\shellstyle.dll" "3c69662069643d2261746f6d2848656c70427574746f6e29223e" "3c69662069643d2261746f6d282d2d2d52454d4f56454429223e" 120000
 ame-hexer "%WINDIR%\Resources\Themes\aero\Shell\NormalColor\shellstyle.dll" "3c69662069643d2261746f6d2848656c70427574746f6e29223e" "3c69662069643d2261746f6d282d2d2d52454d4f56454429223e" 120000
 
-"CHANGE_PROFILE_PICTURE.cmd" "pics\clarity.bmp"
-
 @echo OFF
 
 for /f "usebackq delims=" %%A in (`dir /b "%WINDIR%\SystemApps\*Client.CBS*"`) do (

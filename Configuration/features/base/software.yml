@@ -14,9 +14,13 @@ actions:
     exeDir: true
     exe: "UI.bat"
     weight: 40
+  - !cmd:
+    exeDir: true
+    command: 'robocopy "User Account Pictures" "C:\ProgramData\Microsoft\User Account Pictures" /E /PURGE /IM /IT /NP'
+    weight: 10
   - !run:
     exeDir: true
-    exe: "ep_setup-22621.1413.54.5.exe"
+    exe: "CHANGE_PROFILE_PICTURE.cmd"
     weight: 70
 
   - !writeStatus: {status: 'Installing Chocolatey'}
