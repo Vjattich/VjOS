@@ -1,2 +1,0 @@
-@PowerShell -NoP -ExecutionPolicy Bypass -C "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && set "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-choco install -y --allow-empty-checksums dotnet3.5
