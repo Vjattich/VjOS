@@ -1,4 +1,6 @@
-﻿!g::OpenHighlighted()
+﻿#SingleInstance force
+
+!g::OpenHighlighted()
 return
 
 OpenHighlighted()

@@ -4,7 +4,7 @@ description: Installs software
 privilege: TrustedInstaller
 actions:
 
-#END AFTER INSTALL
+# END AFTER INSTALL
 #  - !writeStatus: { status: 'Installing Discord' }
 #  - !run:
 #    path: '%ProgramData%\chocolatey\bin'
@@ -12,7 +12,7 @@ actions:
 #    args: 'install --allow-empty-checksums Discord'
 #    weight: 30
 
-#ERROR WHILE INSTALL
+# ERROR WHILE INSTALL
 #  - !writeStatus: { status: 'Installing Telegram' }
 #  - !run:
 #    path: '%ProgramData%\chocolatey\bin'
