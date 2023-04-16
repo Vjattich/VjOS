@@ -37,8 +37,11 @@ reg add "HKU\%~1\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}" /f
 reg add "HKU\%~1\CLSID\{d93ed569-3b3e-4bff-8355-3c44f6a52bb5}\InprocServer32" /t REG_SZ /d "" /f
 
 :: Old Explorer Search
-reg add "HKU\%~1\CLSID\{1d64637d-31e9-4b06-9124-e83fb178ac6e}" /f
-reg add "HKU\%~1\CLSID\{1d64637d-31e9-4b06-9124-e83fb178ac6e}\TreatAs" /t REG_SZ /d "{64bc32b5-4eec-4de7-972d-bd8bd0324537}" /f
+:: reg add "HKU\%~1\CLSID\{1d64637d-31e9-4b06-9124-e83fb178ac6e}" /f
+:: reg add "HKU\%~1\CLSID\{1d64637d-31e9-4b06-9124-e83fb178ac6e}\TreatAs" /t REG_SZ /d "{64bc32b5-4eec-4de7-972d-bd8bd0324537}" /f
+
+powershell -command "&{$p='HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3';$v=(Get-ItemProperty -Path $p).Settings; $v[12]=1; &Set-ItemProperty -Path $p -Name Settings -Value $v;}"
+
 @echo OFF
 exit /b 0
 
