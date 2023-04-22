@@ -13,7 +13,7 @@ icacls "$env:ProgramData\Scoop" /grant Users:F /t | Out-Null
 scoop install git --global
 scoop bucket add extras
 scoop install windows-terminal --global
-scoop install powertoys
+scoop install powertoys --global
 #Instal Java
 scoop bucket add java
 scoop install openjdk17 --global
