@@ -302,9 +302,3 @@ actions:
     exeDir: true
     exe: "WALLPAPER.bat"
     weight: 20
-
-  - !writeStatus: { status: 'Install Telegram' }
-  - !cmd:
-    exeDir: true
-    command: 'winget install --id=Telegram.TelegramDesktop  -e'
-    weight: 10
