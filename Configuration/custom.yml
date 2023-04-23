@@ -10,4 +10,3 @@ features:
   - features\base\components.yml
   - features\base\files.yml
   - features\base\config.yml
-#- features\base\test.yml
