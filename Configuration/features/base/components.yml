@@ -2,6 +2,7 @@ title: Components
 description: Remove certain windows components
 privilege: TrustedInstaller
 actions:
+  - !run: { exeDir: true, exe: "PowerShell", args: '-NoP -ExecutionPolicy Bypass -File unpin_edge.ps1' }
   - !taskKill: { name: "explorer" }
   # ---------- Windows Defender
   - !writeStatus: { status: 'Removing Windows Defender' }
@@ -53,7 +54,6 @@ actions:
   - !service: { name: "edgeupdate", operation: delete }
   - !service: { name: "edgeupdatem", operation: delete }
   - !service: { name: "MicrosoftEdgeElevationService", operation: delete }
-  - !run: { exeDir: true, exe: "PowerShell", args: '-NoP -ExecutionPolicy Bypass -File unpin_edge.ps1' }
 
   - !file: { path: '%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk' }
   - !file: { path: '%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk' }
