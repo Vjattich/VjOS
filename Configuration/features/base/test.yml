@@ -4,7 +4,7 @@ description: Installs software
 privilege: TrustedInstaller
 actions:
   - !writeStatus: { status: 'Unpinning Edge' }
-  - !cmd:
+  - !run:
     exeDir: true
-    command: 'explorer.exe shell:::{20D04FE0-3AEA-1069-A2D8-08002B30309D} /unpin %APPDATA%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Microsoft Edge.lnk'
+    exe: "EDGE_UNPIN.bat"
     weight: 10
