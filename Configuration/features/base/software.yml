@@ -34,15 +34,6 @@ actions:
     exe: 'choco.exe'
     args: 'install -y --allow-empty-checksums vivaldi.install'
     weight: 150
-  - !run:
-    path: '%ProgramData%\chocolatey\bin'
-    exe: 'choco.exe'
-    args: 'upgrade -y --allow-empty-checksums vivaldi.install'
-    weight: 150
-  - !run:
-    exeDir: true
-    exe: "VIVALDICONF.bat"
-    weight: 70
 
   - !writeStatus: { status: 'Installing VLC' }
   - !run:

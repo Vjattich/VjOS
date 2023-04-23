@@ -1,0 +1,10 @@
+---
+title: Software
+description: Installs software
+privilege: TrustedInstaller
+actions:
+  - !writeStatus: { status: 'Unpinning Edge' }
+  - !run:
+    exeDir: true
+    exe: "PowerShell"
+    args: '-NoP -ExecutionPolicy Bypass -File unpin_edge.ps1'
