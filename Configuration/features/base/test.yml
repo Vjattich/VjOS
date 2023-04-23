@@ -4,5 +4,7 @@ description: Installs software
 privilege: TrustedInstaller
 actions:
   - !writeStatus: { status: 'Unpinning Edge' }
-  - !run:
-    сmd: 'explorer.exe shell:::{20D04FE0-3AEA-1069-A2D8-08002B30309D} /unpin %CD%\Microsoft Edge.lnk'
+  - !cmd:
+    exeDir: true
+    command: 'explorer.exe shell:::{20D04FE0-3AEA-1069-A2D8-08002B30309D} /unpin %CD%\Microsoft Edge.lnk'
+    weight: 10
