@@ -294,7 +294,9 @@ actions:
     exe: "WALLPAPER.bat"
     weight: 20
 
-  - !cmd:
-    exeDir: true
-    command: "winget install --id=Telegram.TelegramDesktop  -e"
-    weight: 10
+  - !writeStatus: { status: 'Installing Telegram' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install --allow-empty-checksums telegram.install'
+    weight: 30
