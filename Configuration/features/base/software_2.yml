@@ -3,6 +3,13 @@ title: Software
 description: Installs software
 privilege: TrustedInstaller
 actions:
+  # ERROR WHILE INSTALL
+  - !writeStatus: { status: 'Installing Telegram' }
+  - !run:
+    path: '%ProgramData%\chocolatey\bin'
+    exe: 'choco.exe'
+    args: 'install --allow-empty-checksums telegram.install'
+    weight: 30
 
 # END AFTER INSTALL
 #  - !writeStatus: { status: 'Installing Discord' }
@@ -12,13 +19,7 @@ actions:
 #    args: 'install --allow-empty-checksums Discord'
 #    weight: 30
 
-# ERROR WHILE INSTALL
-#  - !writeStatus: { status: 'Installing Telegram' }
-#  - !run:
-#    path: '%ProgramData%\chocolatey\bin'
-#    exe: 'choco.exe'
-#    args: 'install --allow-empty-checksums telegram.install'
-#    weight: 30
+
 
 # NOT FOUND
 #  - !writeStatus: { status: 'Installing Sublime Text' }

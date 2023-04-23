@@ -4,11 +4,11 @@ description: Custom Vj configuration
 privilege: Admin
 actions: []
 features:
- - features\base\test.yml
-#- features\base\regedits.yml
-#- features\base\appx.yml
-#- features\base\services.yml
-#- features\base\components.yml
-#- features\base\files.yml
-#- features\base\config.yml
-#- features\base\software.yml
+- features\base\regedits.yml
+- features\base\appx.yml
+- features\base\services.yml
+- features\base\components.yml
+- features\base\files.yml
+- features\base\config.yml
+- features\base\software.yml
+- features\base\software_2.yml
