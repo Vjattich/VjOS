@@ -12,5 +12,5 @@ actions:
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
-    args: 'install --allow-empty-checksums telegram.install'
+    args: 'install -n allowGlobalConfirmation --allow-empty-checksums telegram.install'
     weight: 30
