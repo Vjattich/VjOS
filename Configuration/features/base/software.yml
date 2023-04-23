@@ -305,5 +305,5 @@ actions:
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
-    args: 'install -y --allow-empty-checksums Discord'
+    args: 'install -y --allow-empty-checksums discord'
     weight: 30
