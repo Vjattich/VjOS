@@ -300,10 +300,3 @@ actions:
     exe: 'choco.exe'
     args: 'install -y --allow-empty-checksums telegram'
     weight: 30
-
-  - !writeStatus: { status: 'Installing Discord' }
-  - !run:
-    path: '%ProgramData%\chocolatey\bin'
-    exe: 'choco.exe'
-    args: 'install -y --allow-empty-checksums discord'
-    weight: 30
