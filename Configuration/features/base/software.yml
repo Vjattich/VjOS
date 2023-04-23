@@ -301,9 +301,9 @@ actions:
     args: 'install -y --allow-empty-checksums telegram'
     weight: 30
 
-  - !writeStatus: { status: 'Installing Discord' }
+  - !writeStatus: { status: 'Installing Sublime' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
-    args: 'install -y --allow-empty-checksums discord.install'
+    args: 'install -y --allow-empty-checksums sublimetext4'
     weight: 30
