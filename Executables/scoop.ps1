@@ -10,14 +10,14 @@ setx SCOOP "$env:ProgramData\Scoop" -m
 icacls "$env:ProgramData\Scoop" /grant Everyone:F /t | Out-Null
 icacls "$env:ProgramData\Scoop" /grant Users:F /t | Out-Null
 
+#Install Git
+scoop install git --global
 scoop bucket add extras
 scoop install windows-terminal --global
 #Install PowetToys
 scoop install powertoys --global
 #Install Discord
 scoop install discord --global
-#Install Git
-scoop install git --global
 #Install Java
 scoop bucket add java
 scoop install openjdk17 --global
