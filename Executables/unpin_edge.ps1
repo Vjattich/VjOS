@@ -24,7 +24,7 @@ public static string GetString(uint strId)
 	{
 		Add-Type @Signature
 	}
-
+echo "$env:AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
 # Call the shortcut context menu item
 $Shell = (New-Object -ComObject Shell.Application).NameSpace("$env:AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar")
 $Shortcut = $Shell.ParseName("Microsoft Edge.lnk")
