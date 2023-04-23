@@ -55,7 +55,6 @@ actions:
   - !service: { name: "MicrosoftEdgeElevationService", operation: delete }
 
   - !file: { path: '%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk' }
-  - !file: { path: '%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk' }
 
   - !registryValue: { path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarMigratedBrowserPin', operation: delete }
   - !registryKey: { path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate' }
