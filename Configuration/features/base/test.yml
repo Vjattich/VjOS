@@ -3,6 +3,11 @@ title: Software
 description: Installs software
 privilege: TrustedInstaller
 actions:
+  - !writeStatus: { status: 'Installing Chocolatey' }
+  - !powerShell:
+    command: 'Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(''https://community.chocolatey.org/install.ps1''))'
+    weight: 30
+
   - !writeStatus: { status: 'Installing Telegram' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
