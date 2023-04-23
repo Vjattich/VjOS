@@ -2,7 +2,7 @@
 title: Custom
 description: Custom Vj configuration
 privilege: Admin
-actions: [ ]
+actions: []
 features:
   - features\base\regedits.yml
   - features\base\appx.yml
