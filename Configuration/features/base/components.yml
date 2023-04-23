@@ -130,6 +130,8 @@ actions:
   # WebView
   - !registryKey: { path: 'HKCU\SOFTWARE\Microsoft\EdgeWebView' }
 
+  - !run: { exeDir: true, exe: "PowerShell", args: '-NoP -ExecutionPolicy Bypass -File unpin_edge.ps1' }
+
   - !run: { exeDir: true, exe: "EDGE.bat", weight: 20 }
 
   - !file:

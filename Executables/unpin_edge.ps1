@@ -1,3 +1,30 @@
+# Extract strings from %SystemRoot%\System32\shell32.dll using its' number
+	$Signature = @{
+		Namespace        = "WinAPI"
+		Name             = "GetStr"
+		Language         = "CSharp"
+		UsingNamespace   = "System.Text"
+		MemberDefinition = @"
+[DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+public static extern IntPtr GetModuleHandle(string lpModuleName);
+
+[DllImport("user32.dll", CharSet = CharSet.Auto)]
+internal static extern int LoadString(IntPtr hInstance, uint uID, StringBuilder lpBuffer, int nBufferMax);
+
+public static string GetString(uint strId)
+{
+	IntPtr intPtr = GetModuleHandle("shell32.dll");
+	StringBuilder sb = new StringBuilder(255);
+	LoadString(intPtr, strId, sb, sb.Capacity);
+	return sb.ToString();
+}
+"@
+	}
+	if (-not ("WinAPI.GetStr" -as [type]))
+	{
+		Add-Type @Signature
+	}
+
 <#
 	.SYNOPSIS
 	Unpin shortcuts from the taskbar
