@@ -16,8 +16,6 @@ scoop bucket add extras
 scoop install windows-terminal --global
 #Install PowetToys
 scoop install powertoys --global
-#Install Discord
-scoop install discord --global
 #Install Java
 scoop bucket add java
 scoop install openjdk17 --global
