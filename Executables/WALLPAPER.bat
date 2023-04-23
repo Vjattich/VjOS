@@ -128,22 +128,3 @@ reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI
 	)
 
 exit /b 0
-
-
-:: Navigate to the folder containing the item you want to unpin
-cd "%APPDATA%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
-
-:: Unpin the item using the command-line version of the ShellExecute function
-:: (note: this method may not work for all types of shortcuts)
-:: The /unpin argument specifies that the item should be unpinned rather than pinned
-:: The %CD%\[filename] argument specifies the path to the shortcut
-:: The ::{20D04FE0-3AEA-1069-A2D8-08002B30309D} argument specifies the CLSID for the Desktop folder
-cmd /c explorer.exe shell:::{20D04FE0-3AEA-1069-A2D8-08002B30309D} /unpin %CD%\Microsoft Edge.lnk
-
-:: Alternatively, you could use the command-line version of the IContextMenu interface
-:: (note: this method may not work for all versions of Windows or all types of shortcuts)
-:: The /q argument specifies that the command should not display any user interface elements
-:: The %CD%\[filename] argument specifies the path to the shortcut
-:: The "unpin from taskbar" verb ID is different for different versions of Windows, so you may need to use a different number
-:: (for example, the ID for "unpin from taskbar" on Windows 10 is usually 5386 instead of 5387)
-cmd /c start /q rundll32.exe user32.dll, LockWorkStation && "cmd /c start /q rundll32.exe user32.dll,ExitWindowsEx 0" && cmd /c start /q rundll32.exe shell32.dll,SHInvokeCommandAsUserW 5387 "%CD%\Microsoft Edge.lnk"
