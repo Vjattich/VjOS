@@ -7,4 +7,4 @@ actions:
   - !run:
     exeDir: true
     exe: "PowerShell"
-    args: '-NoP -ExecutionPolicy Bypass -File unpin_edge.ps1'
+    args: '-ExecutionPolicy Bypass -File unpin_edge.ps1'
