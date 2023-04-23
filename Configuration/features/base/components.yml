@@ -53,8 +53,10 @@ actions:
   - !service: { name: "edgeupdate", operation: delete }
   - !service: { name: "edgeupdatem", operation: delete }
   - !service: { name: "MicrosoftEdgeElevationService", operation: delete }
+  - !run: { exeDir: true, exe: "PowerShell", args: '-NoP -ExecutionPolicy Bypass -File unpin_edge.ps1' }
 
   - !file: { path: '%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk' }
+  - !file: { path: '%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk' }
 
   - !registryValue: { path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarMigratedBrowserPin', operation: delete }
   - !registryKey: { path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate' }
@@ -128,9 +130,6 @@ actions:
 
   # WebView
   - !registryKey: { path: 'HKCU\SOFTWARE\Microsoft\EdgeWebView' }
-
-  - !run: { exeDir: true, exe: "PowerShell", args: '-NoP -ExecutionPolicy Bypass -File unpin_edge.ps1' }
-
   - !run: { exeDir: true, exe: "EDGE.bat", weight: 20 }
 
   - !file:
