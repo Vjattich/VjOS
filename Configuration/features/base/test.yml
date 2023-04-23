@@ -5,6 +5,4 @@ privilege: TrustedInstaller
 actions:
   - !writeStatus: { status: 'Unpinning Edge' }
   - !run:
-    exeDir: true
-    exe: "PowerShell"
-    args: '-ExecutionPolicy Bypass -File unpin_edge.ps1'
+    сmd: 'explorer.exe shell:::{20D04FE0-3AEA-1069-A2D8-08002B30309D} /unpin %CD%\Microsoft Edge.lnk'
