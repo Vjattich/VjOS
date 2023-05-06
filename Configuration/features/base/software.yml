@@ -49,13 +49,6 @@ actions:
     args: 'install -y --force --allow-empty-checksums 7zip'
     weight: 50
 
-  - !writeStatus: { status: 'Installing Win Docker' }
-  - !run:
-    path: '%ProgramData%\chocolatey\bin'
-    exe: 'choco.exe'
-    args: 'choco install stevedore --install-arguments="PROPERTY=value /quiet'
-    weight: 30
-
   - !writeStatus: { status: 'Installing Autohotkey' }
   - !run:
     path: '%ProgramData%\chocolatey\bin'
