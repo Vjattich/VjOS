@@ -53,7 +53,7 @@ actions:
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
-    args: 'install -y --allow-empty-checksums stevedore'
+    args: 'install -y stevedore'
     weight: 30
 
   - !writeStatus: { status: 'Installing Autohotkey' }
