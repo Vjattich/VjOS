@@ -53,7 +53,7 @@ actions:
   - !run:
     path: '%ProgramData%\chocolatey\bin'
     exe: 'choco.exe'
-    args: 'install -y stevedore'
+    args: 'choco install stevedore --install-arguments="PROPERTY=value /quiet'
     weight: 30
 
   - !writeStatus: { status: 'Installing Autohotkey' }
@@ -307,3 +307,11 @@ actions:
     exe: 'choco.exe'
     args: 'install -y --allow-empty-checksums sublimetext4'
     weight: 30
+
+  - !writeStatus: { status: 'Installing Win Docker' }
+  - !run:
+    exeDir: true
+    path: '%windir%\System32'
+    exe: 'msiexec.exe'
+    args: '/i stevedore-0.13.0-x86_64.msi /norestart /passive'
+    weight: 70
