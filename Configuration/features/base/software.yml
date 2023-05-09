@@ -249,12 +249,12 @@ actions:
     args: 'install -y --allow-empty-checksums directx'
     weight: 150
 
-  - !writeStatus: { status: 'Installing OnlyOffice' }
-  - !run:
-    path: '%ProgramData%\chocolatey\bin'
-    exe: 'choco.exe'
-    args: 'install -y --force --allow-empty-checksums onlyoffice'
-    weight: 150
+#  - !writeStatus: { status: 'Installing OnlyOffice' }
+#  - !run:
+#    path: '%ProgramData%\chocolatey\bin'
+#    exe: 'choco.exe'
+#    args: 'install -y --force --allow-empty-checksums onlyoffice'
+#    weight: 150
 
   - !writeStatus: { status: 'Installing Cascadia Mono font' }
   - !run:
